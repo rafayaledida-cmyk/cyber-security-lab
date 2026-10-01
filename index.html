@@ -5,135 +5,369 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>مختبر الأمن السيبراني</title>
+    <title>CyberLab | مختبر الأمن السيبراني</title>
 
     <style>
+
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
         }
 
         body {
-            margin: 0;
+            background: #07111f;
+            color: white;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #101820;
         }
 
-        .container {
-            width: 90%;
-            max-width: 700px;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
+        /* الشريط العلوي */
+
+        header {
+            width: 100%;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #16283d;
+            background: #07111f;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+            color: #00ff9d;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav a {
+            color: #b8c7d9;
+            text-decoration: none;
+            margin-right: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ff9d;
+        }
+
+        /* القسم الرئيسي */
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid #00ff9d;
+            border-radius: 30px;
+            color: #00ff9d;
+            font-size: 14px;
+            margin-bottom: 25px;
         }
 
         h1 {
-            margin-bottom: 10px;
+            font-size: 55px;
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
 
-        .description {
-            color: #555;
+        h1 span {
+            color: #00ff9d;
+        }
+
+        .hero p {
+            color: #aab8c7;
+            font-size: 18px;
             line-height: 1.8;
+            margin-bottom: 35px;
         }
 
-        .warning {
-            background: #fff3cd;
-            color: #664d03;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 25px 0;
-        }
+        /* الأزرار */
 
         .buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
-        a {
+        .btn {
             text-decoration: none;
-        }
-
-        button {
-            width: 100%;
-            padding: 16px;
-            border: none;
+            padding: 15px 25px;
             border-radius: 10px;
-            cursor: pointer;
-            font-size: 17px;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        .training {
-            background: #222;
+        .primary {
+            background: #00ff9d;
+            color: #061018;
+        }
+
+        .secondary {
+            border: 1px solid #34495e;
             color: white;
         }
 
-        .quiz {
-            background: #198754;
-            color: white;
+        .btn:hover {
+            transform: translateY(-3px);
         }
 
-        button:hover {
-            opacity: 0.85;
+        /* البطاقات */
+
+        .features {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px 80px;
         }
 
-        .footer {
-            margin-top: 30px;
-            font-size: 13px;
-            color: #777;
+        .features h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
         }
 
-        @media (max-width: 600px) {
-            .buttons {
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #0c1a2b;
+            border: 1px solid #172d44;
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #00ff9d;
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #9eafc1;
+            line-height: 1.7;
+        }
+
+        /* التحذير */
+
+        .warning {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 20px;
+            border: 1px solid #665c24;
+            background: #191807;
+            border-radius: 12px;
+            text-align: center;
+            color: #e8df9b;
+        }
+
+        /* الفوتر */
+
+        footer {
+            border-top: 1px solid #16283d;
+            padding: 25px;
+            text-align: center;
+            color: #718398;
+        }
+
+        /* الهاتف */
+
+        @media (max-width: 750px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cards {
                 grid-template-columns: 1fr;
             }
+
         }
+
     </style>
+
 </head>
 
 <body>
 
-<div class="container">
+<header>
 
-    <h1>🛡️ مختبر الأمن السيبراني</h1>
-
-    <p class="description">
-        مختبر محلي للتعلم والتوعية بالتصيد الاحتيالي
-        واكتشاف الصفحات والرسائل المشبوهة.
-    </p>
-
-    <div class="warning">
-        ⚠️ هذا المختبر تعليمي فقط.
-        <br>
-        لا تستخدم كلمات مرور حقيقية.
+    <div class="logo">
+        🛡️ Cyber<span>Lab</span>
     </div>
 
-    <div class="buttons">
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="phishing.html">المحاكاة</a>
+        <a href="test.html">الاختبار</a>
+    </nav>
 
-        <a href="phishing.html">
-            <button class="training">
-                🔐 تجربة محاكاة التصيد
-            </button>
-        </a>
+</header>
 
-        <a href="test.html">
-            <button class="quiz">
-                🔎 اختبار اكتشاف التصيد
-            </button>
-        </a>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🟢 مختبر تعليمي آمن
+        </div>
+
+        <h1>
+            تعلم كيف تحمي نفسك من
+            <span>التصيد الاحتيالي</span>
+        </h1>
+
+        <p>
+            مختبر تفاعلي يساعدك على فهم أساليب التصيد
+            واكتشاف الرسائل والصفحات المشبوهة بطريقة آمنة.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                href="phishing.html"
+                class="btn primary">
+
+                🔐 ابدأ المحاكاة
+
+            </a>
+
+            <a
+                href="test.html"
+                class="btn secondary">
+
+                🔎 اختبر معلوماتك
+
+            </a>
+
+        </div>
 
     </div>
 
-    <div class="footer">
-        يعمل محليًا على جهازك ولا يرسل بيانات إلى الإنترنت.
+</section>
+
+
+<section class="features">
+
+    <h2>
+        ماذا ستتعلم؟
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">
+                🔗
+            </div>
+
+            <h3>
+                فحص الروابط
+            </h3>
+
+            <p>
+                تعلم كيفية الانتباه إلى عناوين المواقع
+                والنطاقات المشبوهة قبل فتحها.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                📧
+            </div>
+
+            <h3>
+                تحليل الرسائل
+            </h3>
+
+            <p>
+                تعرف على العلامات الشائعة في رسائل
+                التصيد والرسائل المضللة.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🛡️
+            </div>
+
+            <h3>
+                حماية الحسابات
+            </h3>
+
+            <p>
+                تعلم أساسيات حماية الحسابات وعدم
+                مشاركة كلمات المرور أو رموز التحقق.
+            </p>
+
+        </div>
+
     </div>
+
+</section>
+
+
+<div class="warning">
+
+    ⚠️ هذا الموقع مختبر تعليمي فقط.
+    لا تدخل كلمات مرور حقيقية ولا معلومات شخصية.
 
 </div>
 
+
+<footer>
+
+    © 2026 CyberLab — Educational Cybersecurity Lab
+
+</footer>
+
+
 </body>
+
 </html>
