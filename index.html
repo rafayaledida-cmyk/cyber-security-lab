@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>مختبر الأمن السيبراني</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #101820;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .warning {
+            background: #fff3cd;
+            color: #664d03;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .training {
+            background: #222;
+            color: white;
+        }
+
+        .quiz {
+            background: #198754;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🛡️ مختبر الأمن السيبراني</h1>
+
+    <p class="description">
+        مختبر محلي للتعلم والتوعية بالتصيد الاحتيالي
+        واكتشاف الصفحات والرسائل المشبوهة.
+    </p>
+
+    <div class="warning">
+        ⚠️ هذا المختبر تعليمي فقط.
+        <br>
+        لا تستخدم كلمات مرور حقيقية.
+    </div>
+
+    <div class="buttons">
+
+        <a href="phishing.html">
+            <button class="training">
+                🔐 تجربة محاكاة التصيد
+            </button>
+        </a>
+
+        <a href="test.html">
+            <button class="quiz">
+                🔎 اختبار اكتشاف التصيد
+            </button>
+        </a>
+
+    </div>
+
+    <div class="footer">
+        يعمل محليًا على جهازك ولا يرسل بيانات إلى الإنترنت.
+    </div>
+
+</div>
+
+</body>
+</html>

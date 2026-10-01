@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cyber Security Lab</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+
+            .certificate {
+    margin-top: 25px;
+    padding: 30px;
+    text-align: center;
+    border: 3px solid #198754;
+    border-radius: 15px;
+    background: white;
+}
+
+.certificate h2 {
+    font-size: 28px;
+}
+
+.certificate h3 {
+    color: #198754;
+}
+
+.certificate-date {
+    color: #666;
+    font-size: 14px;
+}
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #101820;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+        }
+
+        /* شريط التقدم */
+
+        .progress-container {
+            margin-top: 25px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .progress {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #198754;
+            transition: 0.4s;
+        }
+
+        /* السؤال */
+
+        .question {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 12px;
+        }
+
+        .question-number {
+            color: #198754;
+            font-weight: bold;
+        }
+
+        .option {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 9px;
+            cursor: pointer;
+            background: #ddd;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        .option:hover {
+            background: #ccc;
+        }
+
+        .correct {
+            background: #b7e4c7 !important;
+        }
+
+        .wrong {
+            background: #f5b7b1 !important;
+        }
+
+        /* النتيجة */
+
+        #result {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: #eef1f3;
+            border-radius: 12px;
+        }
+
+        .score {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .explanation {
+            margin-top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.8;
+        }
+
+        .home {
+            display: block;
+            margin-top: 20px;
+            padding: 13px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background: #222;
+            border-radius: 9px;
+        }
+
+        .restart {
+            width: 100%;
+            margin-top: 10px;
+            padding: 13px;
+            border: none;
+            border-radius: 9px;
+            background: #198754;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>🛡️ اختبار الأمن السيبراني</h1>
+
+    <p class="subtitle">
+        هل تستطيع اكتشاف علامات التصيد الاحتيالي؟
+    </p>
+
+
+    <!-- شريط التقدم -->
+
+    <div class="progress-container">
+
+        <div class="progress-info">
+
+            <span id="questionCounter">
+                السؤال 1 من 3
+            </span>
+
+            <span id="percentage">
+                0%
+            </span>
+
+        </div>
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                id="progressBar">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- السؤال 1 -->
+
+    <div class="question">
+
+        <div class="question-number">
+            السؤال 1
+        </div>
+
+        <p>
+            وصلت رسالة تقول:
+            <br><br>
+
+            "حسابك سيتم إغلاقه خلال 10 دقائق!
+            اضغط هنا لتأكيد حسابك."
+        </p>
+
+
+        <button
+            class="option"
+            onclick="answer(this, 1, false)">
+
+            أضغط على الرابط فورًا
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="answer(this, 1, true)">
+
+            أتحقق من المرسل والرابط أولًا
+
+        </button>
+
+    </div>
+
+
+    <!-- السؤال 2 -->
+
+    <div class="question">
+
+        <div class="question-number">
+            السؤال 2
+        </div>
+
+        <p>
+            وجدت رابطًا بعنوان:
+
+            <br><br>
+
+            <strong>
+                example-security-login.com
+            </strong>
+        </p>
+
+
+        <button
+            class="option"
+            onclick="answer(this, 2, true)">
+
+            أتحقق من النطاق قبل تسجيل الدخول
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="answer(this, 2, false)">
+
+            أسجل الدخول مباشرة
+
+        </button>
+
+    </div>
+
+
+    <!-- السؤال 3 -->
+
+    <div class="question">
+
+        <div class="question-number">
+            السؤال 3
+        </div>
+
+        <p>
+            شخص يدّعي أنه من الدعم ويطلب منك
+            إرسال رمز التحقق الذي وصلك.
+        </p>
+
+
+        <button
+            class="option"
+            onclick="answer(this, 3, true)">
+
+            لا أرسل الرمز وأتحقق من الطلب
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="answer(this, 3, false)">
+
+            أرسل الرمز لأنه قال إنه من الدعم
+
+        </button>
+
+    </div>
+
+
+    <!-- النتيجة -->
+
+    <<div id="result">
+
+    <div class="score" id="score"></div>
+
+    <div class="message" id="message"></div>
+
+    <div class="certificate">
+
+        <h2>🏆 شهادة إتمام</h2>
+
+        <p>تم إكمال تدريب</p>
+
+        <h3>أساسيات اكتشاف التصيد الاحتيالي</h3>
+
+        <p id="certificateScore"></p>
+
+        <p class="certificate-date" id="certificateDate"></p>
+
+        <strong>Cyber Security Lab</strong>
+
+    </div>
+
+    <button
+        class="restart"
+        onclick="location.reload()">
+        🔄 إعادة الاختبار
+    </button>
+
+    <a href="index.html" class="home">
+        🏠 العودة إلى الرئيسية
+    </a>
+
+</div>
+
+
+        <button
+            class="restart"
+            onclick="location.reload()">
+
+            🔄 إعادة الاختبار
+
+        </button>
+
+
+        <a
+            href="index.html"
+            class="home">
+
+            🏠 العودة إلى الرئيسية
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let score = 0;
+
+let answered = 0;
+
+let alreadyAnswered = {
+    1: false,
+    2: false,
+    3: false
+};
+
+
+function answer(button, question, correct) {
+
+    if (alreadyAnswered[question]) {
+        return;
+    }
+
+
+    alreadyAnswered[question] = true;
+
+    answered++;
+
+
+    if (correct) {
+
+        score++;
+
+        button.classList.add("correct");
+
+    } else {
+
+        button.classList.add("wrong");
+
+    }
+
+
+    updateProgress();
+
+
+    if (answered === 3) {
+
+        showResult();
+
+    }
+
+}
+
+
+function updateProgress() {
+
+    let percentage =
+        Math.round((answered / 3) * 100);
+
+
+    document.getElementById(
+        "progressBar"
+    ).style.width = percentage + "%";
+
+
+    document.getElementById(
+        "percentage"
+    ).innerText = percentage + "%";
+
+
+    if (answered < 3) {
+
+        document.getElementById(
+            "questionCounter"
+        ).innerText =
+            "السؤال " +
+            (answered + 1) +
+            " من 3";
+
+    } else {
+
+        document.getElementById(
+            "questionCounter"
+        ).innerText =
+            "اكتمل الاختبار";
+
+    }
+
+}
+
+
+function showResult() {
+
+    document.getElementById("certificateScore").innerText =
+    "النتيجة: " + score + " / 3";
+
+document.getElementById("certificateDate").innerText =
+    "تاريخ الإكمال: " + new Date().toLocaleDateString("ar-DZ");
+
+    document.getElementById(
+        "result"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "score"
+    ).innerText =
+        "🎯 نتيجتك: " +
+        score +
+        " / 3";
+
+
+    let message = "";
+
+
+    if (score === 3) {
+
+        message =
+            "ممتاز! تعرفت على علامات التصيد في جميع الأسئلة.";
+
+    } else if (score === 2) {
+
+        message =
+            "جيد! لديك فهم جيد، ويمكنك مراجعة بعض علامات التصيد.";
+
+    } else {
+
+        message =
+            "راجع علامات التصيد وحاول الاختبار مرة أخرى.";
+
+    }
+
+
+    document.getElementById(
+        "message"
+    ).innerText = message;
+
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+</body>
+
+</html>
